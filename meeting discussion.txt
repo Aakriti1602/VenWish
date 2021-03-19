@@ -23,6 +23,7 @@ databases:-
 	DELETE: http://localhost:4000/experience/:id
 
 4)moodboards
+	name
 	quotes
 	random pics
 	reactions===update
