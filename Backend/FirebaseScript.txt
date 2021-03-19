@@ -1,0 +1,19 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIqXVDXpr9de4tWExx5S5EjaGUk5FC5f0",
+    authDomain: "venwish-a128a.firebaseapp.com",
+    projectId: "venwish-a128a",
+    storageBucket: "venwish-a128a.appspot.com",
+    messagingSenderId: "336580967091",
+    appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
