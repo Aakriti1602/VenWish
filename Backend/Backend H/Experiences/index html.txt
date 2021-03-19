@@ -7,3 +7,5 @@ after id onClick="storeData()"
 
 go back to index_js
 
+for showing list(retrieve data)
+ class name 

@@ -32,3 +32,16 @@ db.collection("experiences").doc( ).set({
 });
 }
 
+DATA RETRIEVAL
+
+const list_div = document.querySelector("alist_div");
+
+db.collection("experiences").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        doc.data().name
+        doc.data().topic
+        doc.data().desc
+        doc.data().map
+    });
+});
+
