@@ -26,7 +26,6 @@ databases:-
 	quotes
 	random pics
 	reactions===update
-	map(=hospital location)
 	GET: http://localhost:4000/moodboard
 	POST: http://localhost:4000/moodboard
 	DELETE: http://localhost:4000/moodboard/:id
