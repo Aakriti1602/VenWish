@@ -6,9 +6,9 @@ databases:-
 	description*
 	map(=hospital location)
 	contact info*(email)
-	GET: http://localhost:4000/experience
-	POST: http://localhost:4000/experience
-	DELETE: http://localhost:4000/experience/:id
+	GET: http://localhost:4000/makeawish
+	POST: http://localhost:4000/makeawish
+	DELETE: http://localhost:4000/makeawish/:id
 
 	
 3)experiences
@@ -27,9 +27,9 @@ databases:-
 	random pics
 	reactions===update
 	map(=hospital location)
-	GET: http://localhost:4000/experience
-	POST: http://localhost:4000/experience
-	DELETE: http://localhost:4000/experience/:id
+	GET: http://localhost:4000/moodboard
+	POST: http://localhost:4000/moodboard
+	DELETE: http://localhost:4000/moodboard/:id
 
 5)Support Group
 	post links to group
