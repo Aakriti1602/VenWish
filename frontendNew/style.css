@@ -265,3 +265,15 @@ footer {
 .map {
     width: 100%;
 }
+.card {
+    margin:20px;
+    border:solid gray ;
+    padding:5px;
+    border-radius: 10px;
+}
+.Like {
+    background-color:blue;
+}
+.Submit {
+    background-color:Blue;
+}
