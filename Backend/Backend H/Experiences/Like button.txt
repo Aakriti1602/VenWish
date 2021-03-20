@@ -1,0 +1,19 @@
+Button ID = like_button
+
+in index_html make function in like button 
+onClick()= "StoreLikes()"
+
+db.collection(" ").doc().set({
+likes: 0
+})
+
+
+function StoreLikes(){
+var newData = data.likes()+1
+}
+
+
+DATA RETRIEVAL
+
+doc.data().newData
+
