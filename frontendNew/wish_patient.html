@@ -107,7 +107,7 @@
       <div class="row" style="text-align: center;">
         <div class="col"><button class="linkTo"><a>Share Experience</a></button></div>
         <div class="col"><button class="linkTo"><a>Create Moodboard</a></button></div>
-        <div class="col"><button class="linkTo linkToActive"><a href="wish.html">Make a Wish</a></button></div>
+        <div class="col"><button class="linkTo linkToActive"><a href="wish_patient.html">Make a Wish</a></button></div>
       </div>
     </div>
 
@@ -137,22 +137,26 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-3 col-form-label">Name</label>
-                        <div class="col-sm-9"><input type="text" class="form-control-plaintext" id="staticEmail" placeholder="full name"></div>
+                        <label for="text_name" class="col-sm-3 col-form-label">Name</label>
+                        <div class="col-sm-9"><input type="text" class="form-control" id="text_name" placeholder="full name"></div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-3 col-form-label">Wish</label>
-                        <div class="col-sm-9"><textarea type="text" class="form-control" id="inputPassword" placeholder="wish description ..."></textarea></div>
+                        <label for="text_desc" class="col-sm-3 col-form-label">Wish</label>
+                        <div class="col-sm-9"><textarea type="text" class="form-control" id="text_desc" placeholder="wish description ..."></textarea></div>
                     </div>
                     <div class="form-group row">
-                        <label for="mapLink" class="col-sm-3 col-form-label">Map Link</label>
-                        <div class="col-sm-9"><input type="text" class="form-control" id="mapLink" placeholder="map link..."></div>
+                        <label for="text_map" class="col-sm-3 col-form-label">Map Link</label>
+                        <div class="col-sm-9"><input type="text" class="form-control" id="text_map" placeholder="map link..."></div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="text_cont" class="col-sm-3 col-form-label">Contact Info</label>
+                        <div class="col-sm-9"><input type="text" class="form-control" id="text_cont" placeholder="contact..."></div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button id="add_button" onclick="storeWish()" type="button" class="btn btn-primary">Add</button>
             </div>
         </div>
         </div>
