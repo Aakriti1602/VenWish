@@ -70,3 +70,64 @@ firebase.auth().createUserWithEmailAndPassword(email, password)
     // ..
   });
 }
+
+
+
+function storeExp(){
+	var inputName = document.getelementById("name_field").values;
+	var inputTopic= document.getelementById("topic_field").values;
+	var inputDesc = document.getelementById("des_field").values;
+	var inputMap = document.getelementById("map_field").values;
+	
+	
+	db.collection("experiences").doc( ).set({
+		name: inputName,
+	   topic: inputTopic,
+	   desc: inputDesc,
+		map: inputMap
+	})
+	.then(() => {
+		console.log("Document successfully written!");
+	})
+	.catch((error) => {
+		console.error("Error writing document: ", error);
+	});
+	}
+
+	const list_div = document.querySelector("alist_div");
+
+db.collection("experiences").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        doc.data().name
+        doc.data().topic
+        doc.data().desc
+        doc.data().map
+    });
+});
+
+
+
+function storeMood(){
+	var inputName = document.getelementById("mood_name").values;
+	var inputquo= document.getelementById("mood_quo").values;
+
+	db.collection("moodB").doc( ).set({
+		name: inputName,
+	    quo: inputquo
+	   
+	})
+	.then(() => {
+		console.log("Document successfully written!");
+	})
+	.catch((error) => {
+		console.error("Error writing document: ", error);
+	});
+	}
+
+	db.collection("moodB").get().then((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			doc.data().name
+			doc.data().quo
+			
+		});
+	});
