@@ -171,15 +171,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
     
   <!-- FOOTER -->
   <footer>  
@@ -214,25 +205,57 @@
     </div>
   </footer>
 
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-  
-  
-  <script>
-   
-    var firebaseConfig = {
-      apiKey: "AIzaSyAIqXVDXpr9de4tWExx5S5EjaGUk5FC5f0",
-      authDomain: "venwish-a128a.firebaseapp.com",
-      projectId: "venwish-a128a",
-      storageBucket: "venwish-a128a.appspot.com",
-      messagingSenderId: "336580967091",
-      appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
-    };
-   
-    firebase.initializeApp(firebaseConfig);
-  </script>
 
-<script src="index.js"></script> 
+
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script> 
+<script>   
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIqXVDXpr9de4tWExx5S5EjaGUk5FC5f0",
+    authDomain: "venwish-a128a.firebaseapp.com",
+    projectId: "venwish-a128a",
+    storageBucket: "venwish-a128a.appspot.com",
+    messagingSenderId: "336580967091",
+    appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
+  };  
+  firebase.initializeApp(firebaseConfig);
+
+  var db = firebase.firestore();
+
+  // MAKE A WISH
+  function storeWish() {
+    var inputname = document.getElementById("text_name").value;
+    var inputdesc = document.getElementById("text_desc").value;
+    var inputmap = document.getElementById("text_map").value;
+    var inputcont = document.getElementById("text_cont").value;
+
+    db.collection("MakeAWish").doc().set({
+          name: inputname,
+          desc: inputdesc,
+          map: inputmap,
+          cont: inputcont
+    })
+    .then(() => {
+          console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+  }
+
+  const wish_div = document.querySelector('#wishesCards')
+  db.collection('MakeAWish').get().then(function(querySnapshot){
+    querySnapshot.forEach(function(doc){
+      wish_div.innerHTML += '<div class="card"><div class="card-body"><h5 class="card-title">'+ doc.data().name +'</h5><p class="card-text">'+ doc.data().desc +'</p><p class="card-text"><span style="font-weight: 500;">CONTACT INFO:</span>'+ doc.data().cont +'</p><p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="'+ doc.data().map +'" class="cardBtn">MAP</a></p></div></div>'
+    })
+  })
+</script>
+
+
+
+
 </body>
 
 

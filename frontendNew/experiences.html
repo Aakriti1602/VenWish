@@ -157,7 +157,7 @@
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="add_button" onclick="storeWish()" type="button" class="btn btn-primary">Add</button>
+          <button id="add_button" onclick="storeExp()" type="button" class="btn btn-primary">Add</button>
           </div>
       </div>
       </div>
@@ -172,75 +172,7 @@
 
     <!-- CARDS -->
     <div class="container page">
-        <div class="card-columns">
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">TANISHA BISHT</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">AAKRITI</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">PRAKHAR</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">HARSHITA</h5>
-                    <p class="card-text">This is a ltional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">TANISHA BISHT</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum ea tenetur obcaecati sed commodi molestiae. Recusandae excepturi ipsam delectus. additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">AAKRITI</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a nt. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">PRAKHAR</h5>
-                    <p class="card-text">This is a longer card lead-in to additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">HARSHITA</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p style="text-align: right;"><a href="#" class="cardBtn">GRANT</a><a href="#" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p>
-                </div>
-            </div>
-
-
-            
-          </div>
-
+      <div class="card-columns" id="experienceCards"></div>
     </div>
 
 
@@ -289,6 +221,54 @@
   </footer>
 
 
+
+
+  
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script> 
+<script>   
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIqXVDXpr9de4tWExx5S5EjaGUk5FC5f0",
+    authDomain: "venwish-a128a.firebaseapp.com",
+    projectId: "venwish-a128a",
+    storageBucket: "venwish-a128a.appspot.com",
+    messagingSenderId: "336580967091",
+    appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
+  };  
+  firebase.initializeApp(firebaseConfig);
+  
+  var db = firebase.firestore();
+
+  // EXPERIENCE
+  function storeExp(){
+    var inputName = document.getelementById("name_field").values;
+    var inputTopic= document.getelementById("topic_field").values;
+    var inputDesc = document.getelementById("des_field").values;
+    var inputMap = document.getelementById("map_field").values;	
+    
+    db.collection("experiences").doc( ).set({
+      name: inputName,
+      topic: inputTopic,
+      desc: inputDesc,
+      map: inputMap
+    })
+    .then(() => {
+      console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+  }
+
+  const exp_div = document.querySelector('#experienceCards')
+  db.collection('experiences').get().then(function(querySnapshot){
+    querySnapshot.forEach(function(doc){
+      exp_div.innerHTML += '<div class="card"><div class="card-body"><h5 class="card-title">' + doc.data().topic + '</h5><p class="card-text">' + doc.data().topic + '</p><p class="card-text">' + doc.data().desc + '</p><p style="text-align: right;"><a href="' + doc.data().map + '" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p></div></div>'
+    })
+  })
+</script>
 
     
 </body>

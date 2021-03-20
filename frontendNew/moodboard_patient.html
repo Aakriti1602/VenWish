@@ -149,7 +149,7 @@
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="add_button" onclick="storeWish()" type="button" class="btn btn-primary">Add</button>
+          <button id="add_button" onclick="storeMood()" type="button" class="btn btn-primary">Add</button>
           </div>
       </div>
       </div>
@@ -164,65 +164,7 @@
 
     <!-- CARDS -->
     <div class="container page">
-        <div class="card-columns">
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <p class="card-text">QUOTE Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">PRAKHAR</p>
-                </div>
-            </div>
-
-          </div>
+      <div class="card-columns" id="moodCards"></div>
     </div>
 
 
@@ -272,6 +214,51 @@
 
 
 
+
+  
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script> 
+<script>   
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIqXVDXpr9de4tWExx5S5EjaGUk5FC5f0",
+    authDomain: "venwish-a128a.firebaseapp.com",
+    projectId: "venwish-a128a",
+    storageBucket: "venwish-a128a.appspot.com",
+    messagingSenderId: "336580967091",
+    appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
+  };  
+  firebase.initializeApp(firebaseConfig);
+  
+  
+  var db = firebase.firestore();
+
+  // MOOD
+  function storeMood(){
+    var inputName = document.getelementById("mood_name").values;
+    var inputquo= document.getelementById("mood_quo").values;
+
+    db.collection("moodB").doc( ).set({
+      name: inputName,
+        quo: inputquo
+      
+    })
+    .then(() => {
+      console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+  }
+
+  const mood_div = document.querySelector('#moodCards')
+  db.collection('moodB').get().then(function(querySnapshot){
+    querySnapshot.forEach(function(doc){
+      mood_div.innerHTML += '<div class="card" style="width: 18rem"><div class="card-body"><p class="card-text">' + doc.data().quo + '</p><p class="card-text">' + doc.data().name + '</p></div></div>'
+    })
+  })
+</script>
     
 </body>
 
