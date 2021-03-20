@@ -32,3 +32,37 @@ function storedata()
 			console.error("Error writing document: ", error);
 		});
 }
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+like button:
+db.collection("MakeAWish").doc().set({
+    			name: inputname,
+  		  	desc: inputdesc,
+			map: inputmap,
+ 		   	cont: inputcont
+			like : 0
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
