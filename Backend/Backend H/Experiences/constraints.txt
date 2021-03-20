@@ -1,0 +1,6 @@
+
+
+".write": "auth != null && auth.token.isAdmin == true"
+
+
+".validate": "newData.hasChildren(['name', 'age'])"
