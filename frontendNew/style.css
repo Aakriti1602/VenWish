@@ -24,8 +24,8 @@ Button:focus {
     margin-bottom: 100px;
 }
 
-a {
-    all: unset;
+a, a:hover{
+    text-decoration: none;
 }
 
 
@@ -106,6 +106,18 @@ a {
 .linkTo:hover {
     background-color: #005a5a;
     cursor: pointer;
+}
+
+.linkTo a {
+    color: #fff;
+}
+
+.linkToActive {
+    background-color: #d6c800;
+}
+
+.linkToActive:hover {
+    background-color: #d6c800;
 }
 
 
@@ -262,18 +274,53 @@ footer {
     padding-right: 40px;
 }
 
-.map {
-    width: 100%;
+
+
+
+
+/* ############ */
+/* ## WISHES ## */
+/* ############ */
+
+.cardBtn {
+    background-color: #008a8a22;
+    border: 0;
+    padding: 5px 10px;
+    margin-right: 10px;
+    color: #000;
 }
-.card {
-    margin:20px;
-    border:solid gray ;
-    padding:5px;
-    border-radius: 10px;
+
+.cardBtn:hover {
+    cursor: pointer;
+    background-color: #008a8a44;
+    color: #000;
 }
-.Like {
-    background-color:blue;
+
+.cardBtn:active {
+    color: #000;
 }
-.Submit {
-    background-color:Blue;
+
+.fa-heart {
+    color: #be0000;
+}
+
+.fa-heart:hover{
+    cursor: pointer;
+}
+
+.addCardPage {
+    background-color: #008080cc;
+    margin-top: 50px;
+    padding: 30px 60px;
+    color: #fff;
+}
+
+.add:hover {
+    cursor: pointer;
+}
+
+.addBtn {
+    background-color: #00000000;
+    border: 0;
+    color: #fff;
 }
