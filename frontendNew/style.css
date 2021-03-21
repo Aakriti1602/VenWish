@@ -46,6 +46,13 @@ a, a:hover{
 
 .avatars {
     position: absolute;
+    top: 100px;
+    right: 50px;
+    z-index: 1;
+}
+
+.avatar {
+    height: 50px;
 }
 
 

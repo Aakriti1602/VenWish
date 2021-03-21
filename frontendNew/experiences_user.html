@@ -104,8 +104,8 @@
     <!-- LINKS -->
     <div class="container">
       <div class="row" style="text-align: center;">
-        <div class="col"><button class="linkTo"><a href="experiences_patient.html">Share Experience</a></button></div>
-        <div class="col"><button class="linkTo linkToActive"><a href="moodboard_patient.html">Create Moodboard</a></button></div>
+        <div class="col"><button class="linkTo linkToActive"><a href="experiences_patient.html">Share Experience</a></button></div>
+        <div class="col"><button class="linkTo"><a href="moodboard_patient.html">Create Moodboard</a></button></div>
         <div class="col"><button class="linkTo"><a href="wish_patient.html">Make a Wish</a></button></div>
       </div>
     </div>
@@ -118,7 +118,7 @@
     
     <!-- ADD CARD OPTION -->
     <div class="container addCardPage">
-        <h2>SHARE MOODBOARDS</h2>
+        <h2>SHARE YOUR EXPERIENCES</h2>
         <h3>Let Others Know What Is in Your Mind</h3>
         <p style="text-align: right;"><button class="addBtn" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-plus fa-3x add"></i></button></p>
     </div>
@@ -132,24 +132,32 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">ADD</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">ADD A NEW WISH</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
               <form>
                   <div class="form-group row">
-                      <label for="mood_name" class="col-sm-3 col-form-label">Name</label>
-                      <div class="col-sm-9"><input type="text" class="form-control" id="mood_name" placeholder="full name..."></div>
+                      <label for="name_field" class="col-sm-3 col-form-label">Name</label>
+                      <div class="col-sm-9"><input type="text" class="form-control" id="name_field" placeholder="full name..."></div>
                   </div>
                   <div class="form-group row">
-                      <label for="mood_quo" class="col-sm-3 col-form-label">Quote</label>
-                      <div class="col-sm-9"><textarea type="text" class="form-control" id="mood_quo" placeholder="wish description..."></textarea></div>
+                      <label for="topic_field" class="col-sm-3 col-form-label">Topic</label>
+                      <div class="col-sm-9"><input type="text" class="form-control" id="topic_field" placeholder="topic..."></div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="des_field" class="col-sm-3 col-form-label">Description</label>
+                      <div class="col-sm-9"><textarea type="text" class="form-control" id="des_field" placeholder="wish description..."></textarea></div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="map_field" class="col-sm-3 col-form-label">Map Link</label>
+                      <div class="col-sm-9"><input type="text" class="form-control" id="map_field" placeholder="map link..."></div>
                   </div>
               </form>
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="add_button" onclick="storeMood()" type="button" class="btn btn-primary">Add</button>
+          <button id="add_button" onclick="storeExp()" type="button" class="btn btn-primary">Add</button>
           </div>
       </div>
       </div>
@@ -164,7 +172,7 @@
 
     <!-- CARDS -->
     <div class="container page">
-      <div class="card-columns" id="moodCards"></div>
+      <div class="card-columns" id="experienceCards"></div>
     </div>
 
 
@@ -232,6 +240,7 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <script src="./index.js"></script>
+
     
 </body>
 

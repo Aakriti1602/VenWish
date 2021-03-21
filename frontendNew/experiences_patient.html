@@ -27,7 +27,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">VenWish</a>
+        <a class="navbar-brand" href="index.html">VenWish</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -104,7 +104,7 @@
     <!-- LINKS -->
     <div class="container">
       <div class="row" style="text-align: center;">
-        <div class="col"><button class="linkTo linkToActive"><a href="experiences.html">Share Experience</a></button></div>
+        <div class="col"><button class="linkTo linkToActive"><a href="experiences_patient.html">Share Experience</a></button></div>
         <div class="col"><button class="linkTo"><a href="moodboard_patient.html">Create Moodboard</a></button></div>
         <div class="col"><button class="linkTo"><a href="wish_patient.html">Make a Wish</a></button></div>
       </div>
@@ -238,37 +238,8 @@
     appId: "1:336580967091:web:112e9b1daa98d30a4f8ec6"
   };  
   firebase.initializeApp(firebaseConfig);
-  
-  var db = firebase.firestore();
-
-  // EXPERIENCE
-  function storeExp(){
-    var inputName = document.getelementById("name_field").values;
-    var inputTopic= document.getelementById("topic_field").values;
-    var inputDesc = document.getelementById("des_field").values;
-    var inputMap = document.getelementById("map_field").values;	
-    
-    db.collection("experiences").doc( ).set({
-      name: inputName,
-      topic: inputTopic,
-      desc: inputDesc,
-      map: inputMap
-    })
-    .then(() => {
-      console.log("Document successfully written!");
-    })
-    .catch((error) => {
-      console.error("Error writing document: ", error);
-    });
-  }
-
-  const exp_div = document.querySelector('#experienceCards')
-  db.collection('experiences').get().then(function(querySnapshot){
-    querySnapshot.forEach(function(doc){
-      exp_div.innerHTML += '<div class="card"><div class="card-body"><h5 class="card-title">' + doc.data().topic + '</h5><p class="card-text">' + doc.data().topic + '</p><p class="card-text">' + doc.data().desc + '</p><p style="text-align: right;"><a href="' + doc.data().map + '" class="cardBtn">MAP</a><i class="fas fa-heart"></i></p></div></div>'
-    })
-  })
 </script>
+<script src="./index.js"></script>
 
     
 </body>
