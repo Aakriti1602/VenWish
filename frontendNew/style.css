@@ -93,6 +93,11 @@ a, a:hover{
     color: #008080;
 }
 
+.tagline, .product {
+    background-color: #00000055;
+    padding: 20px;
+}
+
 
 
 
@@ -108,7 +113,7 @@ a, a:hover{
     color: #fff;
     border: 0px;
     height: 150px;
-    width: 300px;
+    width: 90%;
     position: relative;
     top: -30px;
     font-size: 20px;
